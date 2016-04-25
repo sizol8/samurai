@@ -1,0 +1,281 @@
+<html>
+    
+    <head>
+        
+        <link href="style.css" rel="stylesheet" type="text/css">
+        <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500' rel='stylesheet' type='text/css'>
+        <meta charset="utf-8">
+        
+    </head>
+    
+    <body onload="loadSettings()">
+        
+        <bg></bg>
+        
+        <button onclick="toggleMenu();"></button>
+        
+        <div class="menu">
+            
+            <label>Background settings</label>
+            
+            <input type="range" min="0" max="360" value="0" oninput="changeBG('hue', this.value)">
+            <input type="range" min="0" max="100" value="0" oninput="changeBG('sat', this.value)">
+            <input type="range" min="0" max="100" value="85" oninput="changeBG('lig', this.value)">
+            
+            <label>Photo settings</label>
+            
+            <input type="range" min="0" max="360" value="0" oninput="changePH('hue', this.value)">
+            <input type="range" min="0" max="200" value="100" oninput="changePH('sat', this.value)">
+            <input type="range" min="50" max="150" value="100" oninput="changePH('lig', this.value)">
+            <input type="range" min="0" max="10" value="0" oninput="changePH('blur', this.value)">
+            
+            <label>Photo url</label>
+            
+            <input type="text" oninput="setBG(this.value)" placeholder="Paste link here">
+            <label id="deletePhoto" onclick="deletePhoto()">Delete Photo</label>
+            <label id="save" onclick="saveCookies()">Save</label>
+            
+        </div>
+        
+        <div class="samurai"></div>
+        
+        <div class="bookmark-container">
+            
+            <div class="bookmark-col">
+            
+                <a class="square" id="fb" href="https://facebook.com/">Facebook</a>
+                <a class="square" id="tt" href="https://twitter.com/">Twitter</a>
+                <a class="rectangle" id="left" onclick="openList('streams')"></a>
+                <a class="square" id="dc" href="https://discordapp.com/channels/@me">Discord</a>
+                <a class="square" id="gm" href="https://gmail.com/">Gmail</a>
+                <a class="square" id="tw" href="https://twitch.tv/">Twitch</a>
+                <a class="square" id="jd" href="http://jbzd.pl/">Jebzdzidy</a>
+            
+            </div>
+
+            <div class="bookmark-col">
+
+                <a class="square" id="sc" href="https://soundcloud.com/">SoundCloud</a>
+                <a class="square" id="ws" href="https://whosampled.com/">WhoSampled</a>
+                <a class="rectangle" id="middle" onclick="openList('playlists')"></a>
+                <a class="square" id="ss" href="https://songsterr.com/">Songterr</a>
+                <a class="square" id="mp" href="http://www.youtube-mp3.org/">YT to MP3</a>
+                <a class="square" id="yt" href="https://youtube.com/">YouTube</a>
+                <a class="square" id="fw" href="http://filmweb.pl/">Filmweb</a>
+
+            </div>
+
+            <div class="bookmark-col">
+
+                <a class="square" id="gh" href="https://github.com/sizol8/samurai/tree/gh-pages">GitHub</a>
+                <a class="square" id="nz" href="https://mega.nz/">MEGA</a>
+                <a class="rectangle" id="right" onclick="openList('finanse')"></a>
+                <a class="square" id="ka" href="https://kat.cr/">Kickass</a>
+                <a class="square" id="pb" href="https://piratebays.co/">Piratebay</a>
+                <a class="square" id="so" href="https://stackoverflow.com/">Stack Over...</a>
+                <a class="square" id="ch" href="https://boards.4chan.org/wg/">4chan</a>
+
+            </div>
+            
+        </div>
+        
+        <div class="list" id="streams">
+            
+            <a href="https://www.twitch.tv/riotgames/">Riot Games</a>
+            <a href="https://www.twitch.tv/esl_csgo">ESL CSGO</a>
+            <a href="https://www.twitch.tv/imaqtpie">Imaqtpie</a>
+            <a href="https://www.twitch.tv/mushisgosu">Mushisgosu</a>
+            <a href="https://www.twitch.tv/cohhcarnage">COHH Carnage</a>
+            
+            <a id="close" onclick="this.parentNode.style.top='-100vh'">Close</a>
+            
+        </div>
+        
+        <div class="list" id="playlists">
+            
+            <a href="https://www.youtube.com/watch?v=jtusCJ_Nznk&list=LLO7M-4M_vt38hSoc6zJGAsg">Liked videos</a>
+            <a href="https://www.youtube.com/watch?v=rFywcnKDVUk&list=PLzZ0CQPruwO9uJnybQH6KbHxXKWERLOUy">Chill Rap</a>
+            <a href="https://www.youtube.com/watch?v=-oVW8gcse4g&list=PLzZ0CQPruwO9IjczPndw9bqiHXORwtjED">Metal</a>
+            <a href="https://www.youtube.com/watch?v=yyDUC1LUXSU&list=PLzZ0CQPruwO8SEXjTW0guQ-MvLMRJegI8">Pop</a>
+            <a href="https://www.youtube.com/watch?v=DPC9erC5WqU&list=PLzZ0CQPruwO8mVbmn9lfFqdhjBbvkbF7X">Squad Shit</a>
+            <a href="https://www.youtube.com/watch?v=D0f8NfwRtpc&list=PLzZ0CQPruwO_z20uySHSCVCw801p7WOmz">Festival Trap</a>
+            <a href="https://www.youtube.com/watch?v=JyBV4yinJ38&list=RDJyBV4yinJ38">Vaporwave</a>
+            <a href="https://www.youtube.com/watch?v=B0IwsK5MDsM&list=PLzZ0CQPruwO_IK3QBrIhVlHF2QJtL9chg">Dubstep</a>
+            
+            <a id="close" onclick="this.parentNode.style.top='-100vh'">Close</a>
+            
+        </div>
+        
+        <div class="list" id="finanse">
+            
+            <a href="https://www.ipko.pl/">iPKO</a>
+            <a href="https://www.ebgz.pl/">E-BGŻ</a>
+            <a href="https://allegro.pl/">Allegro</a>
+            <a href="https://olx.pl/">OLX</a>
+            <a href="https://www.paypal.com/pl/home">PayPal</a>
+            
+            <a id="close" onclick="this.parentNode.style.top='-100vh'">Close</a>
+            
+        </div>
+        
+        <script>
+            
+            var isOpen = false;
+            var button = document.getElementsByTagName('button')[0];
+            
+            var bgHue = 0;
+            var bgSat = 0;
+            var bgLig = 85;
+            var bgHsl = [getCookie('bgHue'), getCookie('bgSat'), getCookie('bgLig')];
+            
+            var phHue = 0;
+            var phSat = 100;
+            var phLig = 100;
+            var blur = 0;
+            var phHsl = [getCookie('phHue'), getCookie('phSat'), getCookie('phLig'), getCookie('blur')];
+            
+            var bgLink = '';
+            
+            function loadSettings() {
+                var ck = document.cookie.split("; ");
+                
+                changeBG('hue', getCookie('bgHue'));
+                changeBG('sat', getCookie('bgSat'));
+                changeBG('lig', getCookie('bgLig'));
+                
+                changePH('hue', getCookie('phHue'));
+                changePH('sat', getCookie('phSat'));
+                changePH('lig', getCookie('phLig'));
+                changePH('blur', getCookie('blur'));
+                
+                bgLink = getCookie('bgLink');
+                
+                document.getElementsByTagName('bg')[0].style.backgroundImage = 'url('+getCookie('bgLink')+')';
+                
+                document.getElementsByTagName("input")[0].value = getCookie('bgHue');
+                document.getElementsByTagName("input")[1].value = getCookie('bgSat');
+                document.getElementsByTagName("input")[2].value = getCookie('bgLig'); 
+                document.getElementsByTagName("input")[3].value = getCookie('phHue');
+                document.getElementsByTagName("input")[4].value = getCookie('phSat');
+                document.getElementsByTagName("input")[5].value = getCookie('phLig');
+                document.getElementsByTagName("input")[6].value = getCookie('blur');
+                document.getElementsByTagName("input")[7].value = getCookie('bgLink'); 
+            }
+            
+            function saveCookies() {
+                setCookie('bgHue', bgHue);
+                setCookie('bgSat', bgSat);
+                setCookie('bgLig', bgLig);
+                setCookie('phHue', phHue);
+                setCookie('phSat', phSat);
+                setCookie('phLig', phLig);
+                setCookie('blur', blur);
+                setCookie('bgLink', bgLink);
+            }
+            
+            function getCookie(name) {
+                var value = "; " + document.cookie;
+                var parts = value.split("; " + name + "=");
+                if (parts.length == 2) return parts.pop().split(";").shift();
+            }
+            
+            function setCookie(name, value) {
+                document.cookie = name + "=" + value + "; expires=Thu, 2 Jan 2020 12:00:00 UTC; path=/";
+            }
+            
+            function changeBG(hsl, value) {
+                switch(hsl) {
+                    case 'hue':
+                        bgHue = value;
+                        bgHsl = [bgHue, bgSat, bgLig];
+                        break;
+                    case 'sat':
+                        bgSat = value;
+                        bgHsl = [bgHue, bgSat, bgLig];
+                        break;
+                    case 'lig':
+                        bgLig = value;
+                        bgHsl = [bgHue, bgSat, bgLig];
+                        break;
+                    default:
+                        break;
+                }
+                document.getElementsByTagName('body')[0].style.background = 'hsl('+bgHsl[0]+', '+bgHsl[1]+'%, '+bgHsl[2]+'%)';
+            }
+            
+            /* dont use
+            function aaa() {
+                var a = document.getElementsByTagName("a");
+                for(var i in a) {
+                    var bg = a[i].style.backgroundImage;
+                    if(a[i].id && a[i].id!=('left' || 'middle' || 'right' || 'close')) {
+                        a[i].style.background = 'red';
+                        a[i].style.backgroundImage = bg;
+                        a[i].style.backgroundSize = 'contain';
+                        a[i].style.backgroundRepeat = 'no-repeat';
+                        a[i].style.backgroundPosition = 'center';
+                    }
+                }
+            }
+            */
+            
+            function changePH(hsl, value) {
+                switch(hsl) {
+                    case 'hue':
+                        phHue = value;
+                        phHsl = [phHue, phSat, phLig, blur];
+                        break;
+                    case 'sat':
+                        phSat = value;
+                        phHsl = [phHue, phSat, phLig, blur];
+                        break;
+                    case 'lig':
+                        phLig = value;
+                        phHsl = [phHue, phSat, phLig, blur];
+                        break;
+                    case 'blur':
+                        blur = value;
+                        phHsl = [phHue, phSat, phLig, blur];
+                        break;
+                    default:
+                        break;
+                }
+                document.getElementsByTagName('bg')[0].style.webkitFilter = 'hue-rotate('+phHsl[0]+'deg) saturate('+phHsl[1]+'%) brightness('+phHsl[2]+'%) blur('+phHsl[3]+'px)';
+            }
+            
+            function toggleMenu() {
+                var menu = document.getElementsByClassName("menu")[0];
+                if(isOpen==true) {
+                    menu.style.left = -250;
+                    button.style.backgroundImage = 'url(icons/list.png)';
+                    button.style.backgroundSize = 'cover';
+                    isOpen = false;
+                } else {
+                    menu.style.left = 0;
+                    button.style.backgroundImage = 'url(icons/close.png)';
+                    button.style.backgroundSize = 'cover';
+                    isOpen = true;
+                }
+            }
+            
+            function openList(list) {
+                var list = document.getElementById(list);
+                list.style.top = 0;
+            }
+            
+            function deletePhoto() {
+                document.getElementsByTagName('bg')[0].style.backgroundImage = 'none';
+                document.getElementsByTagName("input")[6].value = '';
+                bgLink = '';
+            }
+            
+            function setBG(link) {
+                bgLink = link;
+                document.getElementsByTagName('bg')[0].style.backgroundImage = 'url('+link+')';
+            }
+            
+        </script>
+        
+    </body>
+    
+</html>

@@ -1,0 +1,481 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #D8D8D8;
+    overflow: hidden;
+    
+    -webkit-filter: blur(0.5px);
+}
+
+bg {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    height: calc(100vh + 30px);
+    width: calc(100vw + 30px);
+    
+    z-index: -2;
+    background-size: 100%;
+}
+
+button {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 50px;
+    width: 50px;
+    
+    z-index: 5;
+    outline: none;
+    border: none;
+    background: transparent;
+    background-image: url(icons/list.png);
+    background-size: cover;
+}
+
+.menu {
+    position: absolute;
+    top: 0px;
+    left: -250px;
+    height: calc(100vh - 50px);
+    width: 250px;
+    padding-top: 50px;
+    background: #222222;
+    opacity: 0.7;
+    transition: opacity 0.1s ease-in-out, left 0.2s ease-in-out;
+}
+
+.menu:hover {
+    opacity: 1;
+}
+
+input[type=range] {
+    -webkit-appearance: none;
+    clear: both;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    height: 5px;
+    width: calc(100% - 50px);
+    margin: 25px;
+    cursor: pointer;
+    outline: none;
+    background: white;
+    box-shadow: 0px 0px 15px black;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    background: white;
+}
+
+label {
+    display: block;
+    clear: both;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    height: 30px;
+    width: calc(100% - 50px);
+    margin: 25px;
+    background: #323232;
+    cursor: pointer;
+    
+    color: white;
+    font-family: "Roboto", sans-serif;
+    text-align: center;
+    font-size: 20px;
+    line-height: 30px;
+}
+
+input[type=text] {
+    clear: both;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    height: 30px;
+    width: calc(100% - 50px);
+    margin: 25px;
+    background: #323232;
+    border: none;
+    outline: none;
+    padding-left: 5px; 
+    
+    color: white;
+    font-family: "Roboto", sans-serif;
+    text-align: left;
+    font-size: 20px;
+    line-height: 30px;
+}
+
+input[type=text]:hover {
+    -webkit-filter: brightness(125%);
+}
+
+label:hover {
+    -webkit-filter: brightness(125%);
+}
+
+#save {
+    position: absolute;
+    top: calc(100vh - 80px);
+}
+
+.samurai {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    
+    height: 350px;
+    width: 350px;
+    
+    opacity: 1;
+    
+    background-image: url(img/samurai-black.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.samurai:before {
+    content: "";
+    display: block;
+    
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    
+    height: 350px;
+    width: 350px;
+    
+    opacity: 0;
+    z-index: -1;
+    -webkit-filter: brightness(200%);
+    
+    background-image: url(img/samurai-blue.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+
+.samurai:after {
+    content: "";
+    display: block;
+    
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    
+    height: 350px;
+    width: 350px;
+    
+    opacity: 0;
+    z-index: -2;
+    -webkit-filter: brightness(200%);
+    
+    background-image: url(img/samurai-red.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+
+.samurai:hover {
+    animation: glitch 3.2s infinite;
+}
+
+.samurai:hover:before {
+    animation: glitch2 3.2s infinite;
+    opacity: 0.4;
+}
+
+
+.samurai:hover:after {
+    animation: glitch3 3.2s infinite;
+    opacity: 0.4;
+}
+
+.list {
+    position: absolute;
+    top: -100vh;
+    left: 0;
+    right: 0;
+    margin: auto;
+    height: 100vh;
+    width: 780px;
+    background: #222222;
+    transition: top 0.2s ease-in-out;
+}
+
+.list a {
+    position: relative;
+    top: 0px;
+    left: 0px;
+    margin: 0;
+    padding-left: 50px;
+    height: 50px;
+    width: calc(100% - 50px);
+    box-shadow: 0px 0px 0px black;
+    
+    text-align: left;
+    font-size: 30px;
+    line-height: 50px;
+}
+
+.list a:before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 50px;
+    width: 50px;
+    background-size: cover;
+}
+
+.list#streams a:before {
+    background-image: url(icons/liststar.png);
+}
+
+.list#playlists a:before {
+    background-image: url(icons/list.png);
+}
+
+.list#finanse a:before {
+    background-image: url(icons/money.png);
+}
+
+.list[id] a[id] {
+    position: absolute;
+    top: calc(100vh - 50px);
+}
+
+.list[id] a#close:before {
+    background-image: url(icons/close.png);
+}
+
+.bookmark-container {
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    height: 500px;
+    width: 720px;
+    transition: width 0.2s ease-in-out;
+}
+
+.bookmark-col {
+    position: relative;
+    float: left;
+    height: 500px;
+    width: 240px;
+    transition: padding 0.2s ease-in-out;
+}
+
+.bookmark-container:hover {
+    width: 780px;
+    
+}
+
+.bookmark-container:hover .bookmark-col {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+a {
+    position: relative;
+    display: block;
+    float: left;
+    top: 0px;
+    left: 0px;
+    height: 100px;
+    margin: 10px;
+    background: #323232;
+    //background: #AA2668;
+    
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    line-height: 175px;
+    text-decoration: none;
+    
+    box-shadow: 0px 0px 10px black;
+    cursor: pointer;
+}
+
+a:hover {
+    -webkit-filter: brightness(125%);
+}
+
+.square {
+    width: 100px;
+}
+
+.rectangle {
+    width: 220px;
+}
+
+.rectangle[id] {
+    //-webkit-filter: saturate(0%);
+}
+
+#left {
+    background-image: url(img/games.png);
+    background-size: contain;
+    background-position: center;
+}
+
+#middle {
+    background-image: url(img/music.png);
+    background-size: contain;
+    background-position: center;
+}
+
+#right {
+    background-image: url(img/money.png);
+    background-size: contain;
+    background-position: center;
+}
+
+a[id] {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#fb {
+    background-image: url(icons/facebook.png);
+}
+
+#tt {
+    background-image: url(icons/twitter.png);
+}
+
+#yt {
+    background-image: url(icons/youtube.png);
+}
+
+#tw {
+    background-image: url(icons/twitch.png);
+}
+
+#dc {
+    background-image: url(icons/discord.png);
+}
+
+#gm {
+    background-image: url(icons/gmail.png);
+}
+
+#sc {
+    background-image: url(icons/soundcloud.png);
+}
+
+#ws {
+    background-image: url(icons/whosampled.png);
+}
+
+#ss {
+    background-image: url(icons/songsterr.png);
+}
+
+#mp {
+    background-image: url(icons/filemusic.png);
+}
+
+#jd {
+    background-image: url(icons/jbzd.png);
+}
+
+#so {
+    background-image: url(icons/stack.png);
+}
+
+#gh {
+    background-image: url(icons/github.png);
+}
+
+#nz {
+    background-image: url(icons/mega.png);
+}
+
+#ka {
+    background-image: url(icons/kickass.png);
+}
+
+#pb {
+    background-image: url(icons/piratebay.png);
+}
+
+#ch {
+    background-image: url(icons/4chan.png);
+}
+
+#fw {
+    background-image: url(icons/filmweb.png);
+}
+
+@keyframes glitch {
+    0% {width: 320px;}
+    6% {width: 350px;}
+    12% {width: 350px;}
+    18% {width: 350px;}
+    25% {width: 350px;}
+    31% {width: 350px;}
+    37% {width: 320px;}
+    43% {width: 350px;}
+    50% {width: 350px;}
+    56% {width: 350px;}
+    62% {width: 320px;}
+    68% {width: 350px;}
+    75% {width: 350px;}
+    81% {width: 350px;}
+    87% {width: 350px;}
+    93% {width: 350px;}
+    100% {width: 320px;}
+}
+
+@keyframes glitch2 {
+    0% {width: 320px;}
+    6% {width: 350px;}
+    12% {width: 350px;}
+    18% {width: 350px; transform: rotate(0deg);}
+    25% {width: 360px; transform: rotate(5deg);}
+    31% {width: 350px; transform: rotate(-5deg);}
+    37% {width: 320px; transform: rotate(0deg);}
+    43% {width: 350px;}
+    50% {width: 350px;}
+    56% {width: 350px;}
+    62% {width: 320px;}
+    68% {width: 350px; transform: rotate(0deg);}
+    75% {width: 360px; transform: rotate(-5deg);}
+    81% {width: 350px; transform: rotate(5deg);}
+    87% {width: 350px; transform: rotate(0deg);}
+    93% {width: 350px;}
+    100% {width: 320px;}
+}
+
+@keyframes glitch3 {
+    0% {width: 320px;}
+    6% {width: 350px;}
+    12% {width: 360px;}
+    18% {width: 350px;}
+    25% {width: 360px;}
+    31% {width: 350px;}
+    37% {width: 330px;}
+    43% {width: 350px;}
+    50% {width: 350px;}
+    56% {width: 350px;}
+    62% {width: 330px;}
+    68% {width: 350px;}
+    75% {width: 360px;}
+    81% {width: 350px;}
+    87% {width: 360px;}
+    93% {width: 350px;}
+    100% {width: 320px;}
+}
